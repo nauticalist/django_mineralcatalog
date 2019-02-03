@@ -11,10 +11,25 @@ Refer to requirements.txt
 
 ## To start
 
+### 1. Initialize virtual environment to run the project
+
 ```
 git clone https://github.com/nauticalist/django_mineralcatalog.git
 cd django_mineralcatalog
 python3 -m venv .env
 source .env/bin/activate
 pip install -r requirements.txt
+python manage.py migrate
+```
+
+### 2. Load fixtures to database
+
+```
+python manage.py shell
+```
+
+```python
+from load_fixtures import load_data
+
+load_data()
 ```

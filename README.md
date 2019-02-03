@@ -24,12 +24,16 @@ python manage.py migrate
 
 ### 2. Load fixtures to database
 
+Enter the python shell with:
 ```
 python manage.py shell
 ```
-
+Load the fixtures data
 ```python
 from load_fixtures import load_data
 
 load_data()
 ```
+Press CTRL + D to exit
+
+

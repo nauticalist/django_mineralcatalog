@@ -1,0 +1,23 @@
+{% extends "minerals/base.html" %}
+
+{% block title %}
+    A magnificant catalog of minerals
+{% endblock %}
+
+{% block content %}
+    <div class="grid-100">
+      <ul class="minerals__container">
+        {% for mineral in minerals %}
+        <li class="minerals__item">
+          <a class="minerals__anchor" href="{% url 'minerals:detail' pk=mineral.pk %}">
+            {{ mineral.name }}
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  <div class="minerals__random">
+    <a class="minerals__anchor" href="#">Show random mineral</a>
+  </div>
+{% endblock %}

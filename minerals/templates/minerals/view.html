@@ -1,0 +1,127 @@
+{% extends "minerals/base.html" %}
+{% load static from staticfiles %}
+{% block title %}
+    {{ mineral.name|title }}
+{% endblock %}
+{% block styles %}
+  <link rel="stylesheet" href="{% static 'minerals/css/custom.css' %}">
+{% endblock %}
+
+{% block content %}
+  <div class="grid-100 mineral__container">
+    <h1 class="mineral__name">{{ mineral.name|title }}</h1>
+    <div class="mineral__image-bg">
+      {% with 'minerals/images/'|add:mineral.name|add:'.jpg' as image %}
+        <img class="mineral__image" src="{% static image %}">
+      {% endwith %}
+      <p class="mineral__caption">{{ mineral.image_caption|title }}</p>
+    </div>
+    <div class="mineral__table-container">
+      <table class="mineral__table">
+        {% if mineral.category %}
+        <tr>
+          <td class="mineral__category">Category</td>
+          <td>{{ mineral.category|title }}</td>
+        </tr>
+        {% endif %}
+        {% if mineral.formula %}
+        <tr>
+          <td class="mineral__category">Formula</td>
+          <td class="mineral__formula">{{ mineral.formula|safe }}</td>
+        </tr>
+        {% endif %}
+        {% if mineral.strunz_classification %}
+        <tr>
+          <td class="mineral__category">Strunz Classification</td>
+          <td>{{ mineral.strunz_classification|title }}</td>
+        </tr>
+        {% endif %}
+        {% if mineral.unit_cell %}
+        <tr>
+          <td class="mineral__category">Unit Cell</td>
+          <td>{{ mineral.unit_cell|safe }}</td>
+        </tr>
+        {% endif %}
+        {% if mineral.color %}
+        <tr>
+          <td class="mineral__category">Color</td>
+          <td>{{ mineral.color|title }}</td>
+        </tr>
+        {% endif %}
+        {% if mineral.crystal_habit %}
+        <tr>
+          <td class="mineral__category">Crystal Habit</td>
+          <td>{{ mineral.crystal_habit|title }}</td>
+        </tr>
+        {% endif %}
+        {% if mineral.mohs_scale_hardness %}
+        <tr>
+          <td class="mineral__category">Mohs Scale Hardness</td>
+          <td>{{ mineral.mohs_scale_hardness }}</td>
+        </tr>
+        {% endif %}
+      </table>
+    </div>
+  </div>
+  <div class="grid-100 details__container">
+    <h2 class="details__header">Other Details</h2>
+    <div class="details__table-container">
+      <table class="details__table">
+        {% if mineral.crystal_system %}
+        <tr>
+          <td class="details__title">Crystal System</td>
+          <td>{{ mineral.crystal_system|title }}</td>
+        </tr>
+        {% endif %}
+        {% if mineral.crystal_symmetry %}
+        <tr>
+          <td class="details__title">Crystal Symmetry</td>
+          <td>{{ mineral.crystal_symmetry|title }}</td>
+        </tr>
+        {% endif %}
+        {% if mineral.cleavage %}
+        <tr>
+          <td class="details__title">Cleavage</td>
+          <td>{{ mineral.cleavage|safe }}</td>
+        </tr>
+        {% endif %}
+        {% if mineral.luster %}
+        <tr>
+          <td class="details__title">Luster</td>
+          <td>{{ mineral.luster|title }}</td>
+        </tr>
+        {% endif %}
+        {% if mineral.streak %}
+        <tr>
+          <td class="details__title">Streak</td>
+          <td>{{ mineral.streak|title }}</td>
+        </tr>
+        {% endif %}
+        {% if mineral.optical_properties %}
+        <tr>
+          <td class="details__title">Optical Properties</td>
+          <td>{{ mineral.optical_properties|safe }}</td>
+        </tr>
+        {% endif %}
+        {% if mineral.refractive_index %}
+        <tr>
+          <td class="details__title">Refractive Index</td>
+          <td>{{ mineral.refractive_index|safe }}</td>
+        </tr>
+        {% endif %}
+        {% if mineral.specific_gravity %}
+        <tr>
+          <td class="details__title">Specific Gravity</td>
+          <td>{{ mineral.specific_gravity }}</td>
+        </tr>
+        {% endif %}
+        {% if mineral.group %}
+        <tr>
+          <td class="details__title">Group</td>
+          <td>{{ mineral.group|title }}</td>
+        </tr>
+        {% endif %}
+      </table>
+    </div>
+  </div>
+{% endblock %}

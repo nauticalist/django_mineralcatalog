@@ -1,0 +1,8 @@
+.details__container { background-color: #fff; border-radius: 6px; list-style: none; padding: 0; margin-top: 50px; text-align: center; }
+.details__header { display: block; width: 100%; margin: 0; font-size: 20px; padding: 30px 0 30px 0;  text-align: center; }
+.details__table { font-size: 12px; color: #384033; }
+.details__table td { border-color: #CAE5D2; }
+.details__table tr:last-of-type td { border-bottom: none; padding-bottom: 0; }
+.details__table-container { padding: 5px 30px 0; }
+.details__title { font-size: 12px; font-weight: bold; width: 40%; }
+.details__data { font-size: 10px; }

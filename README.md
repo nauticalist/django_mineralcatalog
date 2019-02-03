@@ -34,6 +34,19 @@ from load_fixtures import load_data
 
 load_data()
 ```
-Press CTRL + D to exit
+When you see "Fixtures loaded successfully!" press CTRL + D to exit
 
 
+### 3. Start the server
+
+```
+python manage.py runserver
+```
+Browse http://127.0.0.1:8000 with your web browser.
+
+### 4. Tests:
+
+To run view tests
+```
+python manage.py test
+```

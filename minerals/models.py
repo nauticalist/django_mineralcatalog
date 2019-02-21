@@ -3,6 +3,7 @@ from django.db.models import Max
 
 import random
 
+
 class Mineral(models.Model):
     name = models.CharField(max_length=100)
     image_filename = models.CharField(max_length=255, null=True, blank=True)

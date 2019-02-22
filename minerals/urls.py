@@ -10,4 +10,5 @@ urlpatterns = [
     url(r'random/', views.random_mineral, name='random'),
     url(r'^initial/(?P<initial>\w)',
         views.list_by_initial, name="list_by_initial"),
+    url(r'search/$', views.search, name='search'),
 ]

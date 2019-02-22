@@ -8,8 +8,11 @@ def home(request):
     """
     Display all minerals on home page
     """
-    data = Mineral.objects.all()
+    data = Mineral.objects.filter(
+        Q(name__startswith='A')
+    )
     context = {
+        'current': 'A',
         'minerals': data,
     }
     return render(request, 'minerals/home.html', context)
@@ -45,6 +48,20 @@ def list_by_initial(request, initial):
         raise Http404
     else:
         context = {
-            'minerals': data
+            'minerals': data,
+            'current': initial,
         }
+    return render(request, 'minerals/home.html', context)
+
+
+def search(request):
+    keyword = request.GET.get('keyword')
+    data = Mineral.objects.filter(
+        Q(name__icontains=keyword) |
+        Q(category__icontains=keyword)
+    )
+    context = {
+        'keyword': keyword,
+        'minerals': data,
+    }
     return render(request, 'minerals/home.html', context)

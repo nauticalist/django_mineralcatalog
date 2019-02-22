@@ -26,25 +26,21 @@
       </a>
       <p class="logo__text text-centered">They're not rocks!</p>
     </div>
-	<div>
+	<div class="grid-100">
 		<section class="text-centered">
-			<form action="#" method="GET">
+			<form action="{% url 'minerals:search' %}" method="GET">
 				<input type="search" name="keyword" placeholder="">
 				<button type="submit">Search</button>
 			</form>
 		</section>
 		<section class="text-centered">
-			<h3>Filter by letter:
+			<h4>Filter by letter:
 				{% for i in "ABCDEFGHIJKLMNOPQRSTUVWXYZ" %}
-				<a href="{% url 'minerals:list_by_initial' initial=i %}" {% if i in request.path_info %}
-					{% if 'list' in request.path_info %}style="color:red;font-weight:bold"{% endif %}{% endif %}>{{ i }}
+				<a href="{% url 'minerals:list_by_initial' initial=i %}" {% if i == current  %}
+					style="color:red;font-weight:bold"{% endif %}>{{ i }}
 				</a>
 				{% endfor %}
-			</h3>
-		</section>
-		<section>
-			{% mineral_groups %}
-
+			</h4>
 		</section>
 	</div>
   {% block content %}{% endblock %}

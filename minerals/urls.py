@@ -11,4 +11,5 @@ urlpatterns = [
     url(r'^initial/(?P<initial>\w)',
         views.list_by_initial, name="list_by_initial"),
     url(r'search/$', views.search, name='search'),
+    url(r'filter/$', views.filter_by, name='filter_by'),
 ]

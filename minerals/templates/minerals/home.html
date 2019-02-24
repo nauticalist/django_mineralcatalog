@@ -7,11 +7,21 @@
 {% block content %}
 <div class="grid-100">
   <div>
-    <div class="minerals__container">
     {% if keyword %}
-      <h5 class="text-center">Search results for: {{ keyword }}</h5>
-    {% endif %}
+    <div class="mineral__container">
+      <h5 class="text-centered">Search results for: {{ keyword }}</h5>
     </div>
+	{% elif filter %}
+    <div class="mineral__container">
+      <h5 class="text-centered">
+		Filtering by 
+		{% if group %}"{{ group }}" group...
+		{% elif category %} "{{ category }}" category...				
+		{% elif color %} color: "{{ color }}"...				
+		{% endif %}
+	  </h5>
+    </div>
+    {% endif %}
     <br>
     <ul class="minerals__container">
       {% for mineral in minerals %}

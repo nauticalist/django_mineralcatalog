@@ -1,0 +1,33 @@
+
+<form class="form-inline" action="{% url 'minerals:filter_by' %}" method="POST">
+	{% csrf_token %}
+        <label for="filter_field">Filter by:</label>
+        <select name="filter_field" class="div-toggle" data-target=".filters">
+          <option value='' selected>Select an option...</option>
+          <option value="groups" data-show=".groups">Group</option>
+          <option value="categories" data-show=".categories">Category</option>
+          <option value="colors" data-show=".colors">Color</option>
+        </select>
+        <div class="filters">
+                  <input list="groups" name="groups" class="groups hide">
+                  <datalist id="groups">
+                    {% for group in groups %}
+                        <option value="{{ group }}">
+                    {% endfor %}
+                  </datalist>
+                  <input list="categories" name="categories" class="categories hide">
+                  <datalist id="categories">
+                    {% for category in categories %}
+                        <option value="{{ category }}">
+                    {% endfor %}
+                  </datalist>
+                  <input list="colors" name="colors" class="colors hide">
+                  <datalist id="colors">
+                    {% for color in colors %}
+                        <option value="{{ color }}">
+                    {% endfor %}
+                  </datalist>
+        </div>
+       <button type="submit">Filter</button>
+</form>
+<br>

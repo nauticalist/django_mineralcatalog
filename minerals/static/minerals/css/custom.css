@@ -6,3 +6,49 @@
 .details__table-container { padding: 5px 30px 0; }
 .details__title { font-size: 12px; font-weight: bold; width: 40%; }
 .details__data { font-size: 10px; }
+.hide { display: none; }
+.form-inline { 
+  
+  flex-flow: row wrap;
+  align-items: center;
+  text-align: center;
+}
+
+.form-inline label {
+  margin: 5px 10px 5px 0;
+}
+
+.form-inline input, select {
+  vertical-align: middle;
+  margin: 5px 10px 5px 0;
+  padding: 10px;
+  background-color: #fff;
+  color: #666; 
+  border-radius: 6px; 
+  border: 2px solid #CAE5D2; 
+}
+.form-inline button {
+  padding: 10px 20px;
+  background-color: #fff;
+  color: #666; 
+  border-radius: 6px; 
+  border: 2px solid #689b98; 
+}
+
+.form-inline button:hover {
+  background-color: #537d7b;
+  color: #fff; 
+  border-radius: 6px; 
+  border: 2px solid #537d7b; 
+}
+
+@media (max-width: 800px) {
+  .form-inline input {
+    margin: 10px 0;
+  }
+
+  .form-inline {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

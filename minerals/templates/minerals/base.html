@@ -11,7 +11,8 @@
   <link href='https://fonts.googleapis.com/css?family=Work+Sans:400,500' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Cousine' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="{% static 'css/global.css' %}">
-  {% block styles %}{% endblock %}
+  <script type="text/javascript" src="{% static 'minerals/js/jquery-3.3.1.min.js' %}"></script>
+  <link rel="stylesheet" href="{% static 'minerals/css/custom.css' %}">
 </head>
 <body>
   <div class="bounds">
@@ -28,10 +29,10 @@
     </div>
 	<div class="grid-100">
 		<section class="text-centered">
-			<form action="{% url 'minerals:search' %}" method="GET">
-				<input type="search" name="keyword" placeholder="">
-				<button type="submit">Search</button>
-			</form>
+      <form class="form-inline text-centered" action="{% url 'minerals:search' %}" method="GET">
+        <input name="keyword" placeholder="Search for...">
+        <button type="submit">Search</button>
+      </form>
 		</section>
 		<section class="text-centered">
 			<h4>Filter by letter:
@@ -43,10 +44,16 @@
 			</h4>
 		</section>
 	</div>
+  <div class="grid-100">
+    <section class="text-centered">
+      {% filter_by %}
+    </section>
+  </div>
   {% block content %}{% endblock %}
   </div>
   <div class="minerals__random">
     <a class="minerals__anchor" href="{% url 'minerals:random' %}">Show random mineral</a>
   </div>
+  <script type="text/javascript" src="{% static 'minerals/js/custom.js' %}"></script>
 </body>
 </html>

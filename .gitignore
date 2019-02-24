@@ -4,7 +4,7 @@
 /__pycache__/*
 
 #Ignore database
-/journal.db
+/minerals.db
 
 #Ignore local python37 environment
 /.env

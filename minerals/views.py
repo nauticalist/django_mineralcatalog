@@ -96,13 +96,13 @@ def filter_by(request):
         color = request.POST.get('colors')
         if filter_field == 'groups' and group is not None:
             data = Mineral.objects.filter(
-                Q(group=group))
+                Q(group__icontains=group))
         elif filter_field == 'categories' and category is not None:
             data = Mineral.objects.filter(
-                Q(category=category))
+                Q(category__icontains=category))
         elif filter_field == 'colors' and color:
             data = Mineral.objects.filter(
-                Q(color=color))
+                Q(color__icontains=color))
         context = {
             'filter': filter_field,
             'group': group,

@@ -16,7 +16,7 @@ def parse_colum_names(data_list=[]):
 
 def load_data():
     try:
-        with open('minerals.json', 'r') as file:
+        with open('minerals.json', encoding="utf-8") as file:
             data = json.load(file)
             minerals = parse_colum_names(data)
             for mineral in minerals:
